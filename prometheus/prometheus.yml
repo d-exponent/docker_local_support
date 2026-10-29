@@ -8,15 +8,13 @@ scrape_configs:
       - targets: ["localhost:9090"]
 
   - job_name: "nca-rest-api"
-    metrics_path: /metrics
     static_configs:
-      - targets: ["host.docker.internal:9000"]
+      - targets: ["host.docker.internal:2112"]
         labels:
           service: rest-api
 
-  - job_name: "rnca-ealtime"
-    metrics_path: /metrics
+  - job_name: "nca-realtime"
     static_configs:
-      - targets: ["host.docker.internal:9001"]
+      - targets: ["host.docker.internal:2113"]   
         labels:
           service: realtime
